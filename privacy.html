@@ -1,38 +1,118 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy | Lumbre Studios</title>
-  <style>
-    :root { color-scheme: dark; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background: linear-gradient(160deg, #0f172a 0%, #0b2239 55%, #0a2234 100%);
-      color: #eef6ff;
-      padding: 1.5rem;
-    }
-    main {
-      width: min(740px, 100%);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 18px;
-      background: rgba(226, 242, 255, 0.08);
-      padding: 1.4rem;
-    }
-    a { color: #d8edff; }
-    p { color: #c8d9ee; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Privacy Policy</h1>
-    <p><a href="https://chancedarts.github.io/luma-legal/privacy.html">View Privacy Policy</a></p>
-    <p>Support: <a href="mailto:support@lumbrestudios.app">support@lumbrestudios.app</a></p>
-    <p><a href="/">Back to home</a></p>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luma: Daily Reset - Privacy Policy</title>
+    <style>
+      :root {
+        --bg-1: #0f172a;
+        --bg-2: #0b2239;
+        --text: #eef6ff;
+        --muted: #c8d9ee;
+        --card-bg: rgba(226, 242, 255, 0.1);
+        --card-stroke: rgba(255, 255, 255, 0.25);
+        --shadow: 0 16px 44px rgba(2, 8, 23, 0.42);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.62;
+        color: var(--text);
+        background:
+          radial-gradient(1000px 560px at 50% -8%, rgba(107, 174, 255, 0.2), transparent 72%),
+          radial-gradient(840px 520px at 84% 8%, rgba(110, 231, 216, 0.16), transparent 72%),
+          linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 55%, #0a2234 100%);
+      }
+      .wrap { max-width: 900px; margin: 0 auto; padding: 28px 18px 56px; }
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-stroke);
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(8px);
+      }
+      h1 { margin: 0 0 6px; font-size: 2rem; line-height: 1.2; }
+      h2 { margin-top: 28px; margin-bottom: 8px; font-size: 1.15rem; color: #d8edff; }
+      p, li { margin-top: 0; }
+      ul { padding-left: 20px; }
+      .muted { color: var(--muted); }
+      a { color: #d8edff; }
+      .meta { margin-bottom: 14px; }
+      .foot {
+        margin-top: 26px;
+        padding-top: 14px;
+        border-top: 1px solid var(--card-stroke);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <h1>Privacy Policy</h1>
+        <p class="meta"><strong>Luma: Daily Reset</strong> ("Luma")<br />Platforms: iOS and Android<br /><span class="muted">Effective date: 28 February 2026</span></p>
+
+        <h2>1) Summary</h2>
+        <p>Luma is built to be calm, useful, and privacy-conscious.</p>
+        <ul>
+          <li>We do <strong>not</strong> require accounts or login.</li>
+          <li>We do <strong>not</strong> run ads.</li>
+          <li>We do <strong>not</strong> use third-party analytics SDKs.</li>
+          <li>We do <strong>not</strong> collect location data.</li>
+          <li>Most app data is stored locally on your device.</li>
+          <li>AI features are processed through our backend and OpenAI.</li>
+        </ul>
+
+        <h2>2) Data We Collect (On-device vs server)</h2>
+        <p><strong>A) Data stored on your device (local storage)</strong><br />Luma stores app data locally using Hive, including app settings, streak/completion state, usage limiter state, cached tips/history, reminder preferences, and widget display values.</p>
+        <p>This data stays on your device unless you remove the app or clear local data.</p>
+        <p><strong>B) Data processed on our server</strong><br />When you use AI features (daily insights or chat), requests are sent to our backend (Cloudflare Worker). We may process the text you submit plus basic technical logs (for example IP address, timestamp, user agent).</p>
+        <p>We use server logs only for security, abuse prevention, rate limiting, debugging, and service reliability.</p>
+
+        <h2>3) AI Features &amp; Third Parties (OpenAI)</h2>
+        <p>Luma uses AI to generate daily insights and chat responses.</p>
+        <ul>
+          <li>App requests go to our backend (Cloudflare Worker).</li>
+          <li>Our backend sends AI requests to <strong>OpenAI</strong> as a third-party processor.</li>
+          <li>OpenAI processes request content to provide responses.</li>
+        </ul>
+        <p>Luma does not include third-party advertising networks or third-party analytics SDKs.</p>
+
+        <h2>4) Notifications</h2>
+        <p>Luma offers optional daily reminders. Notifications are based on your settings, are local to your device, and can be turned off at any time in app settings or system settings.</p>
+
+        <h2>5) Subscriptions &amp; Billing (Apple/Google)</h2>
+        <p>Luma Plus is offered as auto-renewing monthly and yearly subscriptions.</p>
+        <ul>
+          <li>Purchases are handled by Apple App Store / Google Play Billing.</li>
+          <li>We do not receive your full payment card details.</li>
+          <li>We receive only status information required to unlock subscription features.</li>
+        </ul>
+
+        <h2>6) Data Retention</h2>
+        <ul>
+          <li><strong>On-device data:</strong> kept until you delete the app or clear/reset local app data.</li>
+          <li><strong>Server logs:</strong> retained only as long as reasonably necessary for security, abuse prevention, and reliability.</li>
+          <li><strong>AI request processing:</strong> handled through our backend and OpenAI; retention may vary by provider policy and legal obligations.</li>
+        </ul>
+
+        <h2>7) Your Rights (GDPR)</h2>
+        <p>If you are in the UK/EU, you may have rights including access, correction, deletion, restriction, objection, portability, and the right to lodge a complaint with your local data protection authority.</p>
+        <p>Because Luma is primarily local-first, deleting the app/local data may satisfy many deletion requests.</p>
+
+        <h2>8) Children’s Privacy</h2>
+        <p>Luma is not directed to children under 13 (or the relevant minimum age in your country). We do not knowingly collect personal data from children.</p>
+
+        <h2>9) Changes to this Policy</h2>
+        <p>We may update this Privacy Policy from time to time. If we make material changes, we will update the effective date and publish the revised policy.</p>
+
+        <h2>10) Contact Us</h2>
+        <p>For privacy questions or requests, contact: <a href="mailto:support@lumbrestudios.app">support@lumbrestudios.app</a></p>
+      </section>
+    </main>
+  </body>
 </html>
