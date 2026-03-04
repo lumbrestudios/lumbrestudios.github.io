@@ -1,14 +1,14 @@
 :root {
-  --bg-start: #071225;
-  --bg-mid: #123b66;
-  --bg-end: #b8f3df;
-  --text: #f5f9ff;
-  --muted: #d8e6f7;
-  --card-bg: rgba(245, 251, 255, 0.12);
-  --card-stroke: rgba(255, 255, 255, 0.26);
-  --shadow: 0 18px 50px rgba(5, 13, 30, 0.25);
-  --primary-a: #79b8ff;
-  --primary-b: #4de3d0;
+  --bg-1: #0f172a;
+  --bg-2: #0b2239;
+  --teal-glow: #6ee7d8;
+  --blue-glow: #6baeff;
+  --text: #eef6ff;
+  --muted: #c8d9ee;
+  --card-bg: rgba(226, 242, 255, 0.1);
+  --card-stroke: rgba(255, 255, 255, 0.25);
+  --shadow: 0 16px 44px rgba(2, 8, 23, 0.42);
+  --radius: 22px;
 }
 
 * {
@@ -25,166 +25,192 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(1200px 700px at 12% -8%, rgba(113, 181, 255, 0.36), transparent 70%),
-    radial-gradient(950px 600px at 84% 15%, rgba(112, 255, 225, 0.26), transparent 72%),
-    linear-gradient(145deg, var(--bg-start) 10%, var(--bg-mid) 55%, var(--bg-end) 130%);
+    radial-gradient(1000px 560px at 50% -8%, rgba(107, 174, 255, 0.2), transparent 72%),
+    radial-gradient(840px 520px at 84% 8%, rgba(110, 231, 216, 0.16), transparent 72%),
+    linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 55%, #0a2234 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3.5rem 1.25rem 2.5rem;
   line-height: 1.45;
+  padding: 2.25rem 1.2rem 2rem;
 }
 
-.page-glow {
+.orb {
   position: fixed;
-  width: 28rem;
-  height: 28rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(170, 228, 255, 0.6) 0%, rgba(85, 190, 255, 0.18) 35%, rgba(26, 58, 104, 0) 74%);
-  filter: blur(2px);
-  top: max(-8rem, -8vh);
+  width: min(66vw, 540px);
+  aspect-ratio: 1 / 1;
+  top: -170px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 46% 42%, rgba(199, 242, 255, 0.64) 0%, rgba(92, 175, 255, 0.38) 25%, rgba(54, 130, 220, 0.16) 45%, rgba(10, 24, 52, 0) 74%);
+  filter: blur(2px);
   z-index: -1;
 }
 
 .hero,
 .apps,
 .footer {
-  width: min(62rem, 100%);
+  width: min(1040px, 100%);
 }
 
 .hero {
   text-align: center;
-  padding: 4rem 1rem 2.5rem;
+  padding: 3.8rem 1rem 2.2rem;
 }
 
-.eyebrow {
+.brand {
   margin: 0;
-  color: var(--muted);
-  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  color: var(--muted);
 }
 
 h1 {
-  margin: 0.9rem auto 0;
-  font-size: clamp(2rem, 6vw, 3.9rem);
+  margin: 0.8rem auto 0;
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
   font-weight: 620;
-  line-height: 1.1;
-  max-width: 18ch;
 }
 
 .hero-actions {
-  margin-top: 2rem;
+  margin-top: 1.8rem;
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
   flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
   border-radius: 999px;
-  padding: 0.7rem 1.2rem;
-  font-weight: 550;
-  font-size: 0.96rem;
   border: 1px solid transparent;
+  padding: 0.72rem 1.3rem;
+  text-decoration: none;
+  font-weight: 560;
+  transition: transform 180ms ease, box-shadow 220ms ease, background-color 220ms ease;
 }
 
 .btn-primary {
-  color: #041522;
-  background: linear-gradient(140deg, var(--primary-a), var(--primary-b));
-  box-shadow: 0 10px 30px rgba(77, 163, 255, 0.32);
+  color: #051a2e;
+  background: linear-gradient(135deg, #8ec8ff 0%, #5de5d3 100%);
+  box-shadow: 0 8px 28px rgba(93, 188, 255, 0.35);
 }
 
 .btn-secondary {
   color: var(--text);
-  border-color: rgba(255, 255, 255, 0.38);
+  border-color: rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.08);
 }
 
 .btn-disabled {
-  color: rgba(245, 249, 255, 0.75);
-  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(238, 246, 255, 0.78);
+  border-color: rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
   cursor: not-allowed;
 }
 
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-1px);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  box-shadow: 0 12px 32px rgba(94, 212, 255, 0.42);
+}
+
 .apps {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .card {
-  border-radius: 1.2rem;
+  border-radius: var(--radius);
   border: 1px solid var(--card-stroke);
   background: var(--card-bg);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
   padding: 1.2rem;
+  transition: transform 200ms ease, box-shadow 260ms ease, border-color 220ms ease;
 }
 
-.card-top {
+.card:hover,
+.card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(4, 12, 33, 0.5);
+  border-color: rgba(196, 235, 255, 0.48);
+}
+
+.card-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 0.8rem;
+  gap: 0.7rem;
 }
 
 h2 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.18rem;
 }
 
 .status {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.02em;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.36);
+  padding: 0.24rem 0.54rem;
+  border: 1px solid rgba(255, 255, 255, 0.34);
   background: rgba(255, 255, 255, 0.14);
-  padding: 0.25rem 0.55rem;
   white-space: nowrap;
 }
 
 p {
-  margin: 0.85rem 0 1.1rem;
+  margin: 0.82rem 0 0;
   color: var(--muted);
 }
 
 .card-actions {
-  margin-bottom: 0.8rem;
+  margin-top: 1rem;
 }
 
 .legal-links {
+  margin-top: 0.86rem;
   display: flex;
   gap: 1rem;
 }
 
 .legal-links a,
 .footer a {
-  color: #d4e8ff;
+  color: #d8edff;
 }
 
 .footer {
   text-align: center;
-  margin-top: 2.1rem;
+  margin-top: 2rem;
   color: var(--muted);
-  font-size: 0.95rem;
 }
 
 .footer p {
-  margin: 0.35rem 0 0;
+  margin: 0.38rem 0 0;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 980px) {
+  .apps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
   body {
-    padding-top: 2.4rem;
+    padding-top: 1.5rem;
   }
 
   .hero {
