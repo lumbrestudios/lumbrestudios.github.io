@@ -62,7 +62,7 @@ body {
   opacity: 0.2;
   filter: blur(100px);
   background: radial-gradient(circle at 45% 40%, rgba(175, 223, 255, 0.52) 0%, rgba(91, 170, 255, 0.34) 35%, rgba(10, 24, 52, 0) 74%);
-  animation: orbFloatA 34s ease-in-out infinite;
+  animation: orbFloatA 12s ease-in-out infinite;
 }
 
 .orb-b {
@@ -73,7 +73,7 @@ body {
   opacity: 0.14;
   filter: blur(90px);
   background: radial-gradient(circle at 48% 40%, rgba(120, 255, 229, 0.45) 0%, rgba(56, 145, 255, 0.22) 43%, rgba(10, 24, 52, 0) 76%);
-  animation: orbFloatB 40s ease-in-out infinite;
+  animation: orbFloatB 16s ease-in-out infinite;
 }
 
 .orb-c {
@@ -84,7 +84,7 @@ body {
   opacity: 0.12;
   filter: blur(80px);
   background: radial-gradient(circle at 52% 46%, rgba(255, 236, 210, 0.25) 0%, rgba(98, 182, 255, 0.18) 38%, rgba(10, 24, 52, 0) 74%);
-  animation: orbFloatC 27s ease-in-out infinite;
+  animation: orbFloatC 20s ease-in-out infinite;
 }
 
 .bg-grain {
