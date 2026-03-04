@@ -9,19 +9,26 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="orb" aria-hidden="true"></div>
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="bg-orb orb-a"></span>
+    <span class="bg-orb orb-b"></span>
+    <span class="bg-orb orb-c"></span>
+    <span class="bg-grain"></span>
+  </div>
 
   <header class="hero" id="top">
     <p class="brand">Lumbre Studios</p>
     <h1>Thoughtful apps for modern life</h1>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#apps">Explore Luma</a>
+      <a class="btn btn-primary" href="#luma">Explore Luma</a>
+      <a class="btn btn-testflight" href="#" aria-describedby="testflight-note">Join TestFlight</a>
       <a class="btn btn-secondary" href="mailto:support@lumbrestudios.app">Contact Support</a>
     </div>
+    <p id="testflight-note" class="hero-note">Invite link coming soon.</p>
   </header>
 
   <main id="apps" class="apps" aria-label="Applications">
-    <article class="card" aria-labelledby="luma-title">
+    <article class="card" id="luma" aria-labelledby="luma-title">
       <div class="card-head">
         <h2 id="luma-title">Luma: Daily Reset</h2>
         <span class="status">In TestFlight</span>
