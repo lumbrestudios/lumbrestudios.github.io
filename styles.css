@@ -286,6 +286,10 @@ p {
   color: var(--muted);
 }
 
+.footer a + a {
+  margin-left: 1rem;
+}
+
 .footer p {
   margin: 0.38rem 0 0;
 }

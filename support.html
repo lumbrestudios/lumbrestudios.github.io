@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lumbre Studios Support</title>
+  <meta name="description" content="Support for Luma, Chance Darts, and RayBar by Lumbre Studios.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .support-page {
+      width: min(960px, 100%);
+      padding: 2.2rem 0 0;
+    }
+
+    .support-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--card-stroke);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      padding: clamp(1.4rem, 3vw, 2rem);
+    }
+
+    .support-kicker {
+      margin: 0;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .support-card h1 {
+      max-width: none;
+      margin: 0.7rem 0 0;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+    }
+
+    .support-intro {
+      margin-top: 1rem;
+      max-width: 62ch;
+      font-size: 1.02rem;
+    }
+
+    .support-list {
+      margin: 1.25rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--text);
+    }
+
+    .support-list li + li {
+      margin-top: 0.36rem;
+    }
+
+    .support-note,
+    .support-links {
+      margin-top: 1rem;
+    }
+
+    .support-email {
+      margin-top: 1.15rem;
+      font-size: 1.02rem;
+    }
+
+    .support-email a,
+    .support-links a,
+    .support-section a,
+    .footer-nav a {
+      color: #d8edff;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+
+    .support-section {
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+    }
+
+    .support-section h2 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .support-section p {
+      margin-top: 0.62rem;
+    }
+
+    .support-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem 1.2rem;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+    }
+
+    @media (max-width: 760px) {
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="bg-orb orb-a"></span>
+    <span class="bg-orb orb-b"></span>
+    <span class="bg-orb orb-c"></span>
+    <span class="bg-grain"></span>
+  </div>
+
+  <main class="support-page">
+    <section class="support-card" aria-labelledby="support-title">
+      <p class="support-kicker">Lumbre Studios</p>
+      <h1 id="support-title">Lumbre Studios Support</h1>
+      <p class="support-intro">Need help with one of our apps? This is the support page for all current apps by Lumbre Studios.</p>
+      <p class="support-note">We currently provide support for:</p>
+
+      <ul class="support-list">
+        <li>Luma</li>
+        <li>Chance Darts</li>
+        <li>RayBar</li>
+      </ul>
+
+      <p class="support-email">For questions, feedback, technical issues, or subscription help, contact <a href="mailto:support@lumbrestudios.app">support@lumbrestudios.app</a>.</p>
+      <p class="support-note">We aim to respond within 24 to 48 hours.</p>
+      <p class="support-note">If you are reporting a bug, including your device model, OS version, and a short description of the issue helps us investigate faster.</p>
+
+      <div class="support-grid" aria-label="App support sections">
+        <section class="support-section" aria-labelledby="luma-support-title">
+          <h2 id="luma-support-title">Luma</h2>
+          <p>Support for daily resets, subscriptions, and app issues.</p>
+        </section>
+
+        <section class="support-section" aria-labelledby="chance-support-title">
+          <h2 id="chance-support-title">Chance Darts</h2>
+          <p>Support for gameplay, stats, and technical issues.</p>
+        </section>
+
+        <section class="support-section" aria-labelledby="raybar-support-title">
+          <h2 id="raybar-support-title">RayBar</h2>
+          <p>Support for location, listings, and app issues.</p>
+        </section>
+      </div>
+
+      <p class="support-note"><strong>Helpful links:</strong></p>
+      <div class="support-links" aria-label="Helpful links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/chance-darts-privacy.html">Chance Darts Privacy</a>
+        <a href="/raybar/privacy">RayBar Privacy</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="/support.html">Support</a>
+      <a href="mailto:support@lumbrestudios.app">support@lumbrestudios.app</a>
+    </nav>
+    <p>&copy; Lumbre Studios</p>
+  </footer>
+</body>
+</html>
