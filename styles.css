@@ -226,11 +226,6 @@ h1 {
   box-shadow: 0 8px 22px rgba(4, 12, 33, 0.32);
 }
 
-.app-icon.sureage-logo {
-  width: 68px;
-  height: auto;
-}
-
 .card:hover,
 .card:focus-within {
   transform: translateY(-2px);
