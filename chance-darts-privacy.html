@@ -49,90 +49,91 @@
     <main class="wrap">
       <section class="card">
         <h1>Chance Darts Privacy Policy</h1>
-        <p class="meta"><span class="muted">Effective date: February 20, 2026</span><br />Chance Darts ("we", "our", "us") respects your privacy. This Privacy Policy explains what data the app uses, how it is used, and your choices.</p>
+        <p class="meta"><span class="muted">Effective date: September 13, 2026</span><br />Chance Darts ("we", "our", "us") respects your privacy. This policy explains what information Chance Darts processes, why it is used, where it is stored, and your choices.</p>
 
         <h2>1. Summary</h2>
-        <p>We do not require account sign-up to use the app.</p>
-        <p>Core app data is stored locally on your device.</p>
-        <p>We do not sell personal data.</p>
-        <p>If camera-based AI scoring is enabled in a future release, camera handling rules are described below.</p>
+        <p>You can use core local features without an online account.</p>
+        <p>Core gameplay and profile information stays on your device unless you choose Shared Leagues or Live Display.</p>
+        <p>Shared Leagues use an optional Supabase account and store shared competition information online.</p>
+        <p>Live Display relays event information through Supabase Realtime.</p>
+        <p>Firebase Crashlytics collects crash and technical diagnostics. Chance Darts does not include Firebase Analytics.</p>
+        <p>We do not use advertising SDKs, sell personal information, or track people across apps or websites for advertising.</p>
 
-        <h2>2. Data We Process</h2>
-        <p><strong>A) Data You Enter</strong></p>
-        <p>You may enter:</p>
+        <h2>2. Information Stored on Your Device</h2>
+        <p>Depending on the features you use, Chance Darts may store locally:</p>
         <ul>
-          <li>Player profile information (for example: name, nickname, location, preferences, equipment notes, goals)</li>
-          <li>Match setup and gameplay data</li>
-          <li>Saved game and statistics data</li>
+          <li>player names, nicknames, location text, preferences, equipment notes, and goals;</li>
+          <li>match setup, scores, visits, averages, checkouts, doubles statistics, and heatmap data;</li>
+          <li>local leagues, Darts Night sessions and history, saved games, match history, and player statistics; and</li>
+          <li>achievements, experience, personal bests, app settings, and Pro entitlement state.</li>
+        </ul>
+        <p>This information is not uploaded by default. Local names or gameplay may be included when you choose Shared Leagues or Live Display. Platform backups may include local app data if enabled.</p>
+
+        <h2>3. Optional Accounts and Shared Leagues</h2>
+        <p>Shared Leagues require a Supabase account. Supabase processes your email address, authentication credentials and session information, and an account identifier. Passwords are submitted to Supabase Auth; Chance Darts does not store readable passwords in its league tables.</p>
+        <p>Shared League information stored online can include:</p>
+        <ul>
+          <li>league, team, player, and participant names;</li>
+          <li>membership, captain, team, invitation, and role information;</li>
+          <li>invitee email addresses where email invitations are used;</li>
+          <li>fixture schedules, scores, results, standings inputs, confirmations, disputes, and timestamps; and</li>
+          <li>account and competition identifiers used for ownership, permissions, and result actions.</li>
+        </ul>
+        <p>Shared content may be linked to the account that creates or manages it. Participant names entered by an organiser may belong to people without a Chance Darts account.</p>
+
+        <h2>4. Live Display</h2>
+        <p>Live Display sends the spectator presentation through a public, code-specific Supabase Realtime channel. This can include event and format details, player or team names, fixtures, scores, active-player status, legs, sets, recent visits, averages, 180s, checkout information, standings, highlights, winners, display revisions, timestamps, and temporary connection presence.</p>
+        <p>Anyone with the active code can connect, so share it only with the intended display or venue staff. Chance Darts does not intentionally save Live Display projection messages in its Shared League database. Service providers may process connection and operational metadata needed to run and secure Realtime.</p>
+        <p>The browser receiver stores the active code in that tab's session storage for reconnecting after reload. It clears the code when it is changed or exited or when the scorer ends the display session.</p>
+
+        <h2>5. Crash and Technical Diagnostics</h2>
+        <p>Chance Darts uses Google Firebase Crashlytics in production. It may collect crash stack traces, relevant app state, app version and bundle information, device model and technical characteristics, operating-system information, crash timestamps, installation or session identifiers, and related diagnostics. We use this to diagnose crashes and improve stability.</p>
+        <p>Chance Darts does not attach a Shared League account ID or email to Crashlytics reports. Firebase's current Apple privacy manifests classify its Crash Data and Other Diagnostic Data as not linked to the user and not used for tracking.</p>
+        <p>Chance Darts does not include Firebase Analytics, an advertising SDK, or an analytics product that records routine taps or gameplay behaviour.</p>
+
+        <h2>6. Purchases</h2>
+        <p>Chance Darts Pro uses Apple's StoreKit. Apple handles payment-card and bank information; Chance Darts does not receive or store it. The app receives the product identifier and transaction status needed to buy or restore Pro and stores the entitlement locally. It does not currently send receipts or purchase history to a developer-operated server.</p>
+
+        <h2>7. Camera, Audio, and Haptics</h2>
+        <p>The app contains camera-based scoring and internal camera training tools. Camera access occurs only when a user opens and enables a camera feature. Camera frames and captured training images are processed or stored on the device and are not uploaded in the current implementation. Text-to-speech, sound, and haptics do not require Chance Darts to collect identity information.</p>
+
+        <h2>8. How We Use Information</h2>
+        <p>We use information to provide app features, authenticate optional accounts, operate Shared Leagues and Live Display, unlock or restore Pro, maintain security, and diagnose crashes. We do not use it for third-party advertising or cross-app or cross-site tracking.</p>
+
+        <h2>9. Service Providers and Sharing</h2>
+        <p>We do not sell personal information or share gameplay or profile information with advertisers.</p>
+        <ul>
+          <li><strong>Supabase</strong> provides authentication, Shared League storage and functions, and Live Display Realtime.</li>
+          <li><strong>Google Firebase Crashlytics</strong> processes crash and technical diagnostics.</li>
+          <li><strong>Apple</strong> provides App Store distribution, StoreKit, and enabled platform backups.</li>
+          <li><strong>Cloudflare</strong> hosts Live Display and may process standard web-request and security information.</li>
+        </ul>
+        <p>If you contact support, we use your email address and message to respond.</p>
+
+        <h2>10. Retention and Deletion</h2>
+        <ul>
+          <li>Local information remains until deleted in the app, app data is cleared, or the app is uninstalled, subject to platform backups.</li>
+          <li>Account and Shared League information remains while needed for those features or until deleted through account, league, or administrative controls.</li>
+          <li><strong>Delete Account</strong> removes the Supabase Auth account and account-associated Shared League data. Results in another user's league may remain as league history after the deleted account identifiers are removed.</li>
+          <li>Deleting the online account does not automatically delete separate local profiles, gameplay, or saved games.</li>
+          <li>Live Display messages are intended for live transmission, not permanent Chance Darts storage.</li>
+          <li>Crash and service diagnostics follow each provider's retention practices.</li>
         </ul>
 
-        <p><strong>B) Gameplay/Stats Data</strong></p>
-        <p>The app generates gameplay data such as:</p>
-        <ul>
-          <li>Scores, turns, visits, averages, checkouts, doubles stats</li>
-          <li>Heatmap segment hit data</li>
-          <li>Team/league fixtures and match history</li>
-        </ul>
+        <h2>11. Your Choices</h2>
+        <p>You can use core local features without an account, edit or delete local profiles and saved games, stop Live Display or clear its receiver code, delete your Shared League account in the app, and remove local app data by clearing or uninstalling the app, subject to backups.</p>
 
-        <p><strong>C) Device/Diagnostic Data</strong></p>
-        <p>We do not run our own analytics SDK or ad SDK in the app based on current implementation. Platform providers (Apple/Google) may still provide crash and diagnostic data through their own systems (for example TestFlight diagnostics, Play Console Android Vitals), subject to their policies.</p>
+        <h2>12. Children’s Privacy</h2>
+        <p>Chance Darts is not directed to children under 13. We do not knowingly collect personal information from children under 13. Contact us if you believe a child has provided personal information.</p>
 
-        <h2>3. How We Use Data</h2>
-        <p>We use data to:</p>
-        <ul>
-          <li>Run game features (scoring, undo, sets/legs, pots, team/league flows)</li>
-          <li>Save and resume games</li>
-          <li>Show player/team/league statistics</li>
-          <li>Provide audio/haptic feedback and callouts</li>
-          <li>Improve stability and fix bugs</li>
-        </ul>
+        <h2>13. International Processing</h2>
+        <p>Our service providers may process information in countries other than the one where you live, under their terms, safeguards, and applicable law.</p>
 
-        <h2>4. Where Data Is Stored</h2>
-        <p>App data is stored locally on your device (for example local app storage/shared preferences).</p>
-        <p>We do not currently operate a cloud backend for user gameplay/profile data.</p>
-        <p>If your device backup settings are enabled (for example iCloud/Google backup), local app data may be included in those backups by your platform.</p>
+        <h2>14. Changes to This Policy</h2>
+        <p>We may update this policy when Chance Darts or its data practices change. We will update the effective date above when we do.</p>
 
-        <h2>5. Data Sharing</h2>
-        <p>We do not sell your personal information.</p>
-        <p>We do not share your gameplay/profile data with third-party advertisers.</p>
-        <p>Data may be processed by platform services needed to distribute the app (Apple App Store/TestFlight, Google Play), under their own terms and privacy policies.</p>
-
-        <h2>6. Camera AI Scoring (Future Feature)</h2>
-        <p>If/when camera-based dart detection is added:</p>
-        <ul>
-          <li>The app may request camera permission to detect dart hits.</li>
-          <li>We will disclose in-app when camera features are active.</li>
-          <li>Our intended default design is on-device processing where feasible.</li>
-          <li>Unless clearly disclosed and consented, we will not upload/store raw camera video or photos on our servers.</li>
-        </ul>
-        <p>If any cloud processing is introduced in future, this policy will be updated before release and controls/consent will be provided.</p>
-
-        <h2>7. Audio, Haptics, and Notifications</h2>
-        <p>The app may use text-to-speech, sounds, and haptic feedback for gameplay feedback.</p>
-        <p>These features do not require collection of personal identity data in current implementation.</p>
-
-        <h2>8. Children’s Privacy</h2>
-        <p>Chance Darts is not directed to children under 13.</p>
-        <p>We do not knowingly collect personal data from children under 13.</p>
-        <p>If you believe a child has provided personal information, contact us and we will address it.</p>
-
-        <h2>9. Your Choices and Controls</h2>
-        <p>You can:</p>
-        <ul>
-          <li>Edit or delete player profiles in-app</li>
-          <li>Delete saved games in-app</li>
-          <li>Remove app data by uninstalling the app (subject to any device backups outside the app)</li>
-        </ul>
-        <p>For deletion/help requests, contact us using the details below.</p>
-
-        <h2>10. International Users</h2>
-        <p>If you use the app outside your home country, your data handling may be subject to local laws. We aim to apply privacy protections consistently.</p>
-
-        <h2>11. Changes to This Policy</h2>
-        <p>We may update this policy from time to time. We will update the "Effective date" when changes are made.</p>
-
-        <h2>12. Contact</h2>
-        <p>If you have privacy questions or requests, contact:</p>
+        <h2>15. Contact</h2>
+        <p>For privacy questions or requests, contact:</p>
         <p>Email: <a href="mailto:support@lumbrestudios.app">support@lumbrestudios.app</a></p>
       </section>
     </main>
