@@ -94,7 +94,7 @@
           <li>creation, update, expiry, response, completion, cancellation, connection, and recovery timestamps.</li>
         </ul>
         <p>Online Play records are linked to the participating Chance Darts accounts. They are used to operate the match, synchronize the players, recover the session after an interruption, present results and statistics, and support rematches. Realtime change notifications may be transient, while the underlying match, snapshot, action, event, and rematch records are stored in the Supabase database.</p>
-        <p>For the current release, the display name shown to an Online Play opponent can be derived from the part of the account email address before the “@” symbol. Users should choose an account email with that behavior in mind. A user-selectable Online Play display name is not currently provided.</p>
+        <p>Before creating or joining an Online Match, you choose a public display name for opponents to see. This display name is stored in your Chance Darts Account’s existing Supabase Auth user metadata as <code>public_display_name</code> and with Online Play session records. Your account email address is not shown to Online Play opponents. Changing your display name in Account affects new matches you create or join and does not rewrite names stored with existing matches or their rematches. Existing accounts use the non-identifying fallback “Player” until a public display name is chosen.</p>
         <p>Join codes are intended to be shared with the person you want to invite. Chance Darts does not use Online Play account or gameplay information for advertising or tracking.</p>
 
         <h2>5. Live Display</h2>
