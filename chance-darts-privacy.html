@@ -49,7 +49,7 @@
     <main class="wrap">
       <section class="card">
         <h1>Chance Darts Privacy Policy</h1>
-        <p class="meta"><span class="muted">Effective date: November 5, 2026</span><br />Chance Darts ("we", "our", "us") respects your privacy. This policy explains what information Chance Darts processes, why it is used, where it is stored, and your choices.</p>
+        <p class="meta"><span class="muted">Effective date: November 20, 2026</span><br />Chance Darts ("we", "our", "us") respects your privacy. This policy explains what information Chance Darts processes, why it is used, where it is stored, and your choices.</p>
 
         <h2>1. Summary</h2>
         <p>You can use core local features without an online account.</p>
@@ -72,6 +72,7 @@
 
         <h2>3. Chance Darts Account and Shared Leagues</h2>
         <p>Shared Leagues and Online Play use one Chance Darts Account. Supabase processes your email address, authentication credentials and session information, and an account identifier used to authenticate you and control access to connected features. Passwords are submitted to Supabase Auth; Chance Darts does not store readable passwords in its gameplay or league tables.</p>
+        <p>Supabase also retains account-linked session and authentication-event information, including connection IP addresses, to authenticate sessions, secure accounts and investigate connection or abuse problems. This is separate from live camera footage.</p>
         <p>Shared League information stored online can include:</p>
         <ul>
           <li>league, team, player, and participant names;</li>
@@ -112,7 +113,10 @@
         <p>Chance Darts Pro uses Apple's StoreKit. Apple handles payment-card and bank information; Chance Darts does not receive or store it. The app receives the product identifier and transaction status needed to buy or restore Pro and stores the entitlement locally, separately from the Chance Darts Account. It does not currently send receipts or purchase history to a developer-operated server.</p>
 
         <h2>8. Camera, Audio, and Haptics</h2>
-        <p>This release does not offer automatic camera scoring or Online Play audio or video calls. Internal dartboard preview and training capture tools request camera access only when enabled. Frames and captured training images used by these internal tools are processed or stored on the device. Chance Darts does not automatically upload them; an administrator can explicitly export training samples through the system share sheet. Text-to-speech, sound, and haptics do not require Chance Darts to collect identity information.</p>
+        <p>Chance Darts 1.3.0 introduces optional live video between the two signed-in participants in an Online Match. Sharing your camera and receiving your opponent's video are separate choices and start off for each match. Camera permission is requested when you choose to share; receiving does not require camera access. Use Stop Sharing to stop sending video, or turn off Receive opponent video to stop viewing it. Minimising the video view does not stop sharing.</p>
+        <p>Online Match video does not capture microphone audio. Chance Darts does not provide recording or store live video on its servers. Another participant may still record what they see using other software or equipment. Automatic camera scoring is not part of this release. Text-to-speech, sound, and haptics do not require Chance Darts to collect identity information.</p>
+        <p>Video travels directly between participants using encrypted WebRTC transport. Supabase temporarily stores the match and participant identifiers, connection-session information and signalling messages needed to establish and recover the connection. Signalling can include network addresses that are shared with the other participant. Cloudflare's STUN service helps discover network connectivity. No TURN video relay is enabled; some networks may support score-only play.</p>
+        <p>You can report or block an opponent from Online Play &rarr; Online safety, or during a match through Exit Match &rarr; Report or block. Opening the in-match safety controls stops your video first. Reports contain the reporting and reported accounts, match reference, reason, optional note, time and review status; no video or screenshot is attached. Reports are private to authorised administrators. The owner is the initial reviewer for Lumbre Studios, using <a href="mailto:support@lumbrestudios.app">support@lumbrestudios.app</a>. Blocking stores the account pair and prevents future Online Matches and video between those accounts; you can manage your blocks from Online safety.</p>
 
         <h2>9. How We Use Information</h2>
         <p>We use information to provide app features, authenticate Chance Darts Accounts, operate Shared Leagues, create, synchronize, recover, complete, and rematch Online Play sessions, provide Live Display, unlock or restore Pro, maintain security, prevent misuse, and diagnose crashes. We do not use it for third-party advertising or cross-app or cross-site tracking.</p>
@@ -123,7 +127,7 @@
           <li><strong>Supabase</strong> provides Chance Darts Account authentication, database storage, server functions, and Realtime services for Shared Leagues, Online Play, and Live Display.</li>
           <li><strong>Google Firebase Crashlytics</strong> processes crash and technical diagnostics.</li>
           <li><strong>Apple</strong> provides App Store distribution, StoreKit, and enabled platform backups.</li>
-          <li><strong>Cloudflare</strong> hosts Live Display and may process standard web-request and security information.</li>
+          <li><strong>Cloudflare</strong> hosts Live Display and provides the STUN network-discovery service used by Online Match video. It may process network addresses and operational or security metadata.</li>
         </ul>
         <p>These providers may process technical service metadata, such as IP address, connection information, and security or operational logs, under their own terms and privacy practices.</p>
         <p>If you contact support, we use your email address and message to respond.</p>
@@ -136,11 +140,13 @@
           <li>Delete Account also removes Online Play sessions and rematch records involving that account. Because an Online Play session contains shared gameplay state, deleting it removes that session and its results from the online service for the other participant as well.</li>
           <li>Deleting a Chance Darts Account does not automatically delete separate local profiles, gameplay, or saved games.</li>
           <li>Live Display messages are intended for live transmission, not permanent Chance Darts storage.</li>
-          <li>Crash, security, connection, and service diagnostics follow each provider's retention practices.</li>
+          <li>Safety reports are retained for human review and necessary follow-up. Automatic age-based report deletion is disabled, including for unresolved reports; no 90-day deletion schedule is active. Blocks remain until you unblock the account or either account is deleted. Deleting either account removes its associated reports and blocks. Deleting a match removes its report reference but does not itself remove the report.</li>
+          <li>Video signalling is temporary: acknowledged messages are removed, and expired connection records are reclaimed by scheduled cleanup. Private signalling is also removed when the linked account or match is deleted. No live video recording is stored by this service.</li>
+          <li>Crash, security, connection, and service diagnostics follow each provider's retention practices. Removing records from the live database does not imply immediate deletion from provider backups or private recovery copies.</li>
         </ul>
 
         <h2>12. Your Choices</h2>
-        <p>You can use core local features without an account, decide whether to use Shared Leagues, Online Play, or Live Display, edit or delete local profiles and saved games, stop Live Display or clear its receiver code, delete your Chance Darts Account in the app, and remove local app data by clearing or uninstalling the app, subject to backups.</p>
+        <p>You can use core local features without an account, decide whether to use Shared Leagues, Online Play, or Live Display, edit or delete local profiles and saved games, stop Live Display or clear its receiver code, stop camera sharing or receiving, manage blocked accounts, delete your Chance Darts Account in the app, and remove local app data by clearing or uninstalling the app, subject to backups. Contact support@lumbrestudios.app for privacy or deletion requests concerning retained service records.</p>
 
         <h2>13. Children’s Privacy</h2>
         <p>Chance Darts is not directed to children under 13. We do not knowingly collect personal information from children under 13. Contact us if you believe a child has provided personal information.</p>
