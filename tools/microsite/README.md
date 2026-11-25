@@ -13,6 +13,7 @@ python3 tools/microsite/validate.py
 
 Python 3 and Node (for JavaScript syntax validation) are the only development tools required. There are no npm dependencies, runtime frameworks, external fonts, analytics or cookies.
 
+- `watch-images.json`: owner-supplied Apple Watch screenshot metadata; original PNGs are in `assets/screenshots/chance-darts/watch/`.
 - `content.py`: feature copy, navigation labels and Help articles.
 - `release.json`: verified release status, store links, minimum platforms and release notes. Check the public storefront before changing availability; approval alone is insufficient.
 - `build.py`: shared semantic templates and sitemap generation.

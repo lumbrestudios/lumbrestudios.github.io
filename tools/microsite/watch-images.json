@@ -1,0 +1,56 @@
+[
+  {
+    "file": "live-scores.png",
+    "caption": "Live scores, at a glance.",
+    "alt": "Apple Watch showing Player 1 throwing with 501 remaining and Player 2 with 401 remaining.",
+    "width": 368,
+    "height": 448,
+    "bytes": 109227,
+    "sha256": "9357df2eb4534d563a9b278dc8469a905d8e58e6e9a07586260c551a163735e7"
+  },
+  {
+    "file": "current-player.png",
+    "caption": "Follow the current player.",
+    "alt": "Apple Watch scrolled to Player 2 throwing with 401 remaining; Player 1 has 444 remaining above.",
+    "width": 368,
+    "height": 448,
+    "bytes": 115029,
+    "sha256": "291d236c53927d4a140cbe57fd2c485f296eb224be9b3d65565b8998f042ea40"
+  },
+  {
+    "file": "player-details.png",
+    "caption": "The details of the turn.",
+    "alt": "Apple Watch player detail sheet showing Player 2 with 401 remaining, zero legs and three darts left.",
+    "width": 368,
+    "height": 448,
+    "bytes": 53985,
+    "sha256": "6fdf297026a0f5c190c0e6a8c6d495adfc84c0a207614d77eb0e8457dcfdff5c"
+  },
+  {
+    "file": "checkout-view.png",
+    "caption": "A closer look at the finish.",
+    "alt": "Apple Watch showing Player 2 throwing with 41 remaining and the displayed checkout route 9 · D16.",
+    "width": 368,
+    "height": 448,
+    "bytes": 102270,
+    "sha256": "73061ee145d62cf9ec20d887c9ce904f991cfff4720b28c45d00f798b3bf56da"
+  },
+  {
+    "file": "connection-details.png",
+    "caption": "Connection and match information.",
+    "alt": "Apple Watch detail sheet showing Connected, Player 1 with 204 remaining and Player 2 with 41 remaining.",
+    "width": 368,
+    "height": 448,
+    "bytes": 32583,
+    "sha256": "55a07fa60482ab5567b772a37d23b6ae62387d7b785f06278be737bf6d12abe2"
+  },
+  {
+    "file": "match-progress.png",
+    "caption": "Stay with the match.",
+    "alt": "Apple Watch showing Player 1 throwing with 159 remaining and Player 2 with 21 remaining.",
+    "width": 368,
+    "height": 448,
+    "bytes": 110195,
+    "sha256": "21a5a26e3d47823d49e2425fc71be479639562caed01fdc8050047a08d5480da"
+  }
+]

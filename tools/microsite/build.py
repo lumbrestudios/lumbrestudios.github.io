@@ -8,6 +8,7 @@ RELEASE = json.loads(Path(__file__).with_name('release.json').read_text())
 BASE = 'https://lumbrestudios.app'
 ASSETS = '/assets/screenshots/chance-darts/premium/'
 OUT = ROOT / 'chance-darts'
+WATCH_IMAGES = json.loads(Path(__file__).with_name('watch-images.json').read_text())
 E = html.escape
 
 def route(slug=''):
@@ -26,6 +27,13 @@ def art(name, caption='', eager=False, cls=''):
     w,h=dims.get(name,(2853,2007))
     srcset=', '.join(ASSETS+f.name+' '+f.stem.rsplit('-',1)[1]+'w' for f in files)
     return f'<figure class="art {cls}"><a href="{ASSETS+full.name}" data-viewer aria-label="Enlarge image: {E(caption)}"><img src="{ASSETS+name}-960.webp" srcset="{srcset}" sizes="(max-width: 760px) 92vw, 50vw" width="{w}" height="{h}" alt="{E(caption)}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></a><figcaption>{E(caption)}</figcaption></figure>'
+def watch_art(index, eager=False):
+    item = WATCH_IMAGES[index]
+    path = '/assets/screenshots/chance-darts/watch/' + item['file']
+    return f'<figure class="art watch-art"><a href="{path}" data-viewer aria-label="Enlarge image: {E(item["caption"])}"><img src="{path}" width="{item["width"]}" height="{item["height"]}" alt="{E(item["alt"])}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></a><figcaption>{E(item["caption"])}</figcaption></figure>'
+def watch_gallery():
+    return '<section class="watch-gallery" aria-labelledby="watch-gallery-heading"><div class="section-heading"><p class="eyebrow">A closer look</p><h2 id="watch-gallery-heading">THE MATCH,\nAT A GLANCE.</h2><p>Live scores, current-player focus and match details on Apple Watch. Select a screenshot to view it at full size.</p></div><div class="watch-gallery-grid">' + ''.join(watch_art(i) for i in range(len(WATCH_IMAGES))) + '</div></section>'
+
 def nav(slug):
     groups={}
     for key,p in PAGES.items(): groups.setdefault(p['group'],[]).append((key,p))
@@ -84,6 +92,7 @@ def editorial(kind):
 def page(slug,p):
     image=p.get('image'); special=p.get('special','')
     heroart=art(image,p['caption'],True,'portrait' if image in ['iphone-match','training','darts-night'] else '') if image else editorial(special)
+    if slug=='apple-watch': heroart=watch_art(0,True)
     single=' single' if not heroart else ''
     action=store(slug=='apple-tv')
     if slug=='live-display':action=f'<a class="button" href="{RELEASE["receiver"]}">Open browser Live Display</a>'
@@ -97,6 +106,7 @@ def page(slug,p):
     if p.get('steps'): steps='<section class="steps-section"><h2>GET CONNECTED.</h2><ol class="steps">'+''.join('<li><h3>'+h+'</h3><p>'+b+'</p></li>' for h,b in p['steps'])+'</ol></section>'
     if slug=='darts-night': steps=steps.replace('GET CONNECTED.','SET UP THE NIGHT.')
     body=special_content(special)+steps+prose(p['sections'])
+    if slug=='apple-watch': body+=watch_gallery()
     if slug=='iphone-duo':body+='<section class="duo-gallery"><h2>OPEN UP YOUR GAME.</h2><div>'+art('duo-landscape','Unfolded landscape. Approved Duo promotional artwork.')+art('duo-portrait','Unfolded portrait. Approved Duo promotional artwork.')+'</div></section>'
     if slug=='scoring':body+='<section class="pots-feature">'+art('pots','Chance Darts Pots mode. Approved promotional artwork.')+'<div><p class="eyebrow">The Chance Darts difference</p><h2>A LITTLE CHANCE.\nA DIFFERENT GAME.</h2><p>Choose optional Pots when you want more at stake in every visit.</p></div></section>'
     if p.get('note'):body+='<aside class="note">'+E(p['note'])+'</aside>'
