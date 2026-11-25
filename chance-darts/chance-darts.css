@@ -6,7 +6,14 @@
 @media(max-width:390px){.wrap{width:calc(100% - 32px)}.nav-actions{gap:6px}.product-brand{font-size:11px}.product-brand img{width:30px;height:30px}.nav-download{padding:9px 10px;font-size:12px}.menu-toggle{font-size:12px;padding-left:3px}.menu-toggle span{font-size:16px}.product-bar{gap:8px}.home-hero h1{font-size:44px}.hero-tagline{font-size:17px}.actions{gap:20px}.platforms{gap:0 18px}.screen-links{grid-template-columns:1fr}.footer-top{display:block}.footer-top p{margin-top:20px}.editorial-art span{font-size:29px}.feature-row{column-gap:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
-/* Owner-supplied Watch screenshots retain their complete, original canvas. */
-.watch-art{width:min(100%,296px);margin-inline:auto}.watch-art img{width:100%;height:auto}.watch-art figcaption{max-width:32ch;text-align:center;margin-inline:auto}.watch-art>a{background:#08090d}.watch-gallery{border-top:1px solid var(--line);padding-block:55px 65px}.watch-gallery .section-heading{max-width:760px}.watch-gallery .section-heading>p:last-child{margin-top:24px;max-width:60ch}.watch-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 40px;margin-top:45px}.watch-gallery-grid .watch-art{width:min(100%,260px)}
+/* Original Watch screenshots at half their previous displayed width and height.
+   The CSS case is decorative; full-size viewing retains the unmodified PNG. */
+.watch-art{--watch-screen-width:148px;width:min(100%,296px);margin-inline:auto}
+.watch-art img{display:block;width:100%;height:auto;border-radius:23px;background:#08090d}
+.watch-art figcaption{max-width:32ch;text-align:center;margin:20px auto 0}
+.watch-art>a{box-sizing:content-box;position:relative;isolation:isolate;width:var(--watch-screen-width);margin-inline:auto;padding:12px;border:3px solid #777a80;border-radius:40px;background:linear-gradient(125deg,#a2a5ab 0%,#42454b 16%,#17191e 46%,#45484f 78%,#84878d 100%);box-shadow:inset 0 0 0 2px #25272c,inset 0 0 0 8px #08090d,0 12px 26px #0006}
+.watch-art>a:before{content:"";position:absolute;z-index:-1;right:-6px;top:53%;width:4px;height:29px;border:1px solid #64676e;border-radius:0 4px 4px 0;background:#363940}
+.watch-art>a:after{content:"";position:absolute;z-index:-1;right:-11px;top:27%;width:8px;height:24px;border:1px solid #777a81;border-radius:3px 5px 5px 3px;background:repeating-linear-gradient(0deg,#474a50 0 2px,#92959b 2px 3px);box-shadow:1px 2px 4px #0005}
+.watch-gallery{border-top:1px solid var(--line);padding-block:55px 65px}.watch-gallery .section-heading{max-width:760px}.watch-gallery .section-heading>p:last-child{margin-top:24px;max-width:60ch}.watch-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 40px;margin-top:45px}.watch-gallery-grid .watch-art{--watch-screen-width:130px;width:min(100%,260px)}
 @media(max-width:1000px){.watch-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 30px}}
-@media(max-width:520px){.watch-gallery-grid{grid-template-columns:1fr;gap:34px}.watch-gallery{padding-block:40px 45px}.page-apple-watch .page-hero>.watch-art{width:min(100%,276px)}}
+@media(max-width:520px){.watch-gallery-grid{grid-template-columns:1fr;gap:34px}.watch-gallery{padding-block:40px 45px}.page-apple-watch .page-hero>.watch-art{--watch-screen-width:138px;width:min(100%,276px)}}
