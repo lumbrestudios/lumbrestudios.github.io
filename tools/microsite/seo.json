@@ -1,0 +1,273 @@
+{
+  "updated": "2026-11-25",
+  "method": "Qualitative English-language search and primary product-source review; no search volumes or rank forecasts.",
+  "pages": {
+    "": {
+      "intent": "Darts scoring app for iPhone",
+      "phrases": [
+        "darts scoring app",
+        "free darts scoring app",
+        "iPhone darts app"
+      ],
+      "title": "Darts Scoring App for iPhone | Chance Darts",
+      "description": "Discover Chance Darts for iPhone: scoring, online play, training and connected displays. Free download with limited local play and optional lifetime Pro.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/premium/social.jpg",
+        "width": 1200,
+        "height": 630,
+        "type": "image/jpeg",
+        "alt": "Chance Darts on iPhone Duo in tabletop mode; approved promotional artwork"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "scoring": {
+      "intent": "Keep score for 301, 501 and 701",
+      "phrases": [
+        "501 darts scorer",
+        "darts scorekeeper",
+        "darts calculator",
+        "301 501 701 scoring"
+      ],
+      "title": "501 Darts Scorer & Pots Mode | Chance Darts",
+      "description": "Keep score for 301, 501 and 701 with Chance Darts. Explore singles, doubles, teams and optional Pots, with a free local-play allowance and lifetime Pro.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/scoring.png",
+        "width": 960,
+        "height": 2086,
+        "type": "image/png",
+        "alt": "Chance Darts Match Play scoring on iPhone; approved promotional artwork"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "online-play": {
+      "intent": "Play real-board darts remotely with friends",
+      "phrases": [
+        "play darts online with friends",
+        "online darts with video",
+        "online darts"
+      ],
+      "title": "Play Darts Online with Friends & Video | Chance Darts",
+      "description": "Play real-board darts with friends using live scoring and optional video. Join a private match for free; Pro lets you host. Enter scores manually.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/online-play.png",
+        "width": 1600,
+        "height": 1126,
+        "type": "image/png",
+        "alt": "Chance Darts online play on Duo; approved promotional artwork"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "live-display": {
+      "intent": "Show live darts scores in a browser on a TV",
+      "phrases": [
+        "darts scoreboard for TV",
+        "browser darts scoreboard",
+        "live darts display"
+      ],
+      "title": "Live Darts Scoreboard for TV & Browser | Chance Darts",
+      "description": "Put Chance Darts scores on a bigger screen with browser Live Display. Connect using a spectator code for Match Play or Darts Night; score from your device.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/live-display.png",
+        "width": 1600,
+        "height": 1126,
+        "type": "image/png",
+        "alt": "Chance Darts Live Display promotional artwork"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "apple-tv": {
+      "intent": "Install the native Apple TV darts receiver",
+      "phrases": [
+        "Apple TV darts scoreboard",
+        "tvOS darts display"
+      ],
+      "title": "Apple TV Darts Scoreboard & Live Display | Chance Darts",
+      "description": "Download the free Chance Darts Live Display app for Apple TV. Follow Match Play and Darts Night from a compatible scorer, with remote controls and a demo.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/apple-tv.png",
+        "width": 144,
+        "height": 144,
+        "type": "image/png",
+        "alt": "Chance Darts app logo; native Apple TV Live Display"
+      },
+      "social_note": "Brand image used: no current feature screenshot supplied."
+    },
+    "apple-watch": {
+      "intent": "View local darts match scores on Apple Watch",
+      "phrases": [
+        "Apple Watch darts scores",
+        "darts Watch companion"
+      ],
+      "title": "Apple Watch Darts Scores & Match Progress | Chance Darts",
+      "description": "Follow two-player local singles on Apple Watch: live scores, current player, match progress and results. Included with Chance Darts for your paired iPhone.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/watch/live-scores.png",
+        "width": 368,
+        "height": 448,
+        "type": "image/png",
+        "alt": "Chance Darts Apple Watch screenshot showing Player 1 on 501 and Player 2 on 401"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "iphone-duo": {
+      "intent": "Use Duo scoring layouts and offline outer display",
+      "phrases": [
+        "iPhone Duo darts app",
+        "Duo outer-screen darts display"
+      ],
+      "title": "iPhone Duo Darts App & Outer-Screen Display | Chance Darts",
+      "description": "Score on the inner screen and share the match outside. Explore Chance Darts on iPhone Duo, with adaptive layouts and offline local Live Display.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/iphone-duo.png",
+        "width": 1600,
+        "height": 1126,
+        "type": "image/png",
+        "alt": "Chance Darts on iPhone Duo in tabletop posture; approved promotional artwork"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "ipad": {
+      "intent": "Use darts scoring on the larger iPad screen",
+      "phrases": [
+        "iPad darts scoring app",
+        "iPad darts scoreboard"
+      ],
+      "title": "iPad Darts Scoring App & Match Desk | Chance Darts",
+      "description": "Give your darts game more room on iPad. Explore the Chance Darts Match Desk, larger scoring layouts, training and connected spectator displays.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/ipad.png",
+        "width": 1600,
+        "height": 1200,
+        "type": "image/png",
+        "alt": "Chance Darts scoring layout on iPad; approved promotional artwork"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "training": {
+      "intent": "Practise checkouts and darts skills",
+      "phrases": [
+        "darts training games",
+        "darts checkout practice",
+        "darts practice app"
+      ],
+      "title": "Darts Training Games & Checkout Practice | Chance Darts",
+      "description": "Make practice count with five Chance Darts training games. Work on checkouts, doubles, trebles and accuracy, with clear guidance for each challenge.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/training.png",
+        "width": 960,
+        "height": 2086,
+        "type": "image/png",
+        "alt": "Chance Darts training games on iPhone; approved promotional artwork"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "statistics": {
+      "intent": "Track saved player performance and improvement",
+      "phrases": [
+        "darts statistics tracker",
+        "darts averages",
+        "darts checkout statistics"
+      ],
+      "title": "Darts Statistics, Averages & Player Progress | Chance Darts",
+      "description": "Follow your saved player results and progress in Chance Darts. Pro adds advanced statistics, averages, XP and achievements for supported player profiles.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/7thScreenShot.png",
+        "width": 1284,
+        "height": 2778,
+        "type": "image/png",
+        "alt": "Existing Chance Darts promotional artwork showing a saved player profile, Pro status and career statistics"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "darts-night": {
+      "intent": "Organise a small local darts round robin",
+      "phrases": [
+        "darts night organiser",
+        "pub darts competitions",
+        "local darts round robin"
+      ],
+      "title": "Darts Night Organiser for 3–6 Players | Chance Darts",
+      "description": "Run a local darts night for 3–6 individual players. Chance Darts organises the round robin, running order, standings and results, with spectator displays.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/darts-night.png",
+        "width": 960,
+        "height": 2086,
+        "type": "image/png",
+        "alt": "Chance Darts Night organiser on iPhone; approved promotional artwork"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "leagues": {
+      "intent": "Manage Local and Shared darts leagues",
+      "phrases": [
+        "darts league management",
+        "darts tournament scoring",
+        "darts league fixtures"
+      ],
+      "title": "Darts League Management, Fixtures & Results | Chance Darts",
+      "description": "Organise Local and Shared Leagues in Chance Darts: entrants, fixtures, standings and results. Try one four-entrant starter league; expand with Pro.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/leagues.png",
+        "width": 144,
+        "height": 144,
+        "type": "image/png",
+        "alt": "Lumbre Studios, publisher of the Chance Darts league organiser"
+      },
+      "social_note": "Brand image used: no current feature screenshot supplied."
+    },
+    "pro": {
+      "intent": "Compare free limits and one-time Pro purchase",
+      "phrases": [
+        "darts scoring app without a subscription",
+        "Chance Darts Pro lifetime",
+        "free darts app limits"
+      ],
+      "title": "Darts App Without a Subscription: Pro | Chance Darts",
+      "description": "Compare free Chance Darts access with the optional one-time Pro Lifetime upgrade. Get unlimited local play, online hosting, advanced stats and more leagues.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/8thScreenShot.png",
+        "width": 1284,
+        "height": 2778,
+        "type": "image/png",
+        "alt": "Existing Chance Darts Pro promotional artwork showing unlimited local play and player statistics"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "whats-new": {
+      "intent": "Understand the current Chance Darts release",
+      "phrases": [
+        "Chance Darts 1.4.0",
+        "Chance Darts update",
+        "Apple TV Live Display 1.0"
+      ],
+      "title": "Chance Darts 1.4.0: Watch, Duo & Release Notes",
+      "description": "See what is new in Chance Darts 1.4.0: the Apple Watch companion, Duo outer-screen Live Display and refinements. Includes Apple TV Live Display 1.0 details.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/whats-new.png",
+        "width": 1600,
+        "height": 1126,
+        "type": "image/png",
+        "alt": "Chance Darts Match Desk on unfolded Duo; existing promotional artwork for the connected-screens release"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    },
+    "help": {
+      "intent": "Solve Chance Darts setup and feature questions",
+      "phrases": [
+        "Chance Darts help",
+        "connect darts Live Display",
+        "restore Chance Darts Pro"
+      ],
+      "title": "Chance Darts Help: Scoring, Displays & Pro",
+      "description": "Find answers about Chance Darts scoring, online play, Watch, Duo, Live Display and Pro. Read setup guidance, feature limits and contact support.",
+      "image": {
+        "path": "/assets/screenshots/chance-darts/social/help.png",
+        "width": 1600,
+        "height": 2274,
+        "type": "image/png",
+        "alt": "Chance Darts on unfolded Duo in portrait; existing product artwork accompanying setup help"
+      },
+      "social_note": "Existing genuine artwork; social platforms control presentation and cropping."
+    }
+  }
+}

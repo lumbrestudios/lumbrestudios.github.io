@@ -22,6 +22,7 @@ class Document(HTMLParser):
   if tag=='img' and 'src' in a:
    self.images.append(a);self.assets.append(a['src'])
    self.assets.extend(s.strip().split(' ')[0] for s in a.get('srcset','').split(',') if s.strip())
+  if tag=='source' and 'srcset' in a:self.assets.extend(s.strip().split(' ')[0] for s in a['srcset'].split(','))
   if tag=='script':
    if 'src'in a:self.assets.append(a['src']);self.scripts.append(a['src'])
    self.in_json=a.get('type')=='application/ld+json';self.current_json=''
@@ -51,9 +52,9 @@ for file,d in docs.items():
   check(bool(d.meta.get(k)),label+' missing '+k)
  check(d.meta.get('og:url')==d.canonicals[0],label+' OG URL differs')
  check(len(d.jsons)==1,label+' missing structured data')
- for record in d.jsons[0]:
-  check(record.get('@context')=='https://schema.org',label+' invalid schema context')
-  check(record.get('@type') in ['WebPage','BreadcrumbList','MobileApplication'],label+' unexpected schema type')
+ check(d.jsons[0].get('@context')=='https://schema.org',label+' invalid schema context')
+ for record in d.jsons[0]['@graph']:
+  check(record.get('@type') in ['Organization','WebSite','WebPage','BreadcrumbList','SoftwareApplication'],label+' unexpected schema type')
   check('aggregateRating' not in record and 'review' not in record,label+' unsupported reviews')
  for img in d.images:
   check('alt'in img,label+' missing alt');check('width'in img and 'height'in img,label+' missing image dimensions')

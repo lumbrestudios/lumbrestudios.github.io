@@ -9,6 +9,7 @@ BASE = 'https://lumbrestudios.app'
 ASSETS = '/assets/screenshots/chance-darts/premium/'
 OUT = ROOT / 'chance-darts'
 WATCH_IMAGES = json.loads(Path(__file__).with_name('watch-images.json').read_text())
+SEO = json.loads(Path(__file__).with_name('seo.json').read_text())
 E = html.escape
 
 def route(slug=''):
@@ -20,17 +21,20 @@ def store(tv=False):
     if product['status'] != 'released':
         return '<p class="availability">Public release not yet verified.</p>'
     return f'<a class="button store" data-store href="{product["url"]}"><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M19.3 14.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1.1C6.6 7.9 4.6 9.1 3.5 11c-2.2 3.8-.6 9.4 1.5 12.5 1 1.5 2.2 3.1 3.8 3 1.5-.1 2.1-1 4-1 1.9 0 2.4 1 4.1 1 1.7 0 2.8-1.5 3.8-3 1.2-1.7 1.7-3.4 1.7-3.5-.1 0-3.1-1.2-3.1-5.2ZM16.2 5.8c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.9.9-3.8 2-.8.9-1.6 2.5-1.4 4 1.5.1 2.9-.8 3.9-1.9Z"/></svg><span><small>{"Apple TV · Download on the" if tv else "Download on the"}</small>App Store</span></a>'
-def art(name, caption='', eager=False, cls=''):
+def art(name, caption='', eager=False, cls='', sizes=None):
     files = sorted((ROOT / ASSETS.lstrip('/')).glob(name+'-*.webp'),key=lambda p:int(p.stem.rsplit('-',1)[1]))
     full = files[-1]
     dims = {'iphone-match':(1320,2868),'pots':(1320,2868),'training':(1320,2868),'darts-night':(1320,2868),'cricket':(1320,2868),'duo-portrait':(2007,2853),'ipad':(2752,2064)}
     w,h=dims.get(name,(2853,2007))
+    if sizes is None:
+        sizes = '(max-width: 760px) 230px, 260px' if cls == 'portrait' else ('250px' if name == 'pots' else '(max-width: 640px) calc(100vw - 40px), (max-width: 760px) 600px, (max-width: 1100px) calc((100vw - 101px) / 2), (max-width: 1416px) calc((100vw - 166px) / 2), 625px')
     srcset=', '.join(ASSETS+f.name+' '+f.stem.rsplit('-',1)[1]+'w' for f in files)
-    return f'<figure class="art {cls}"><a href="{ASSETS+full.name}" data-viewer aria-label="Enlarge image: {E(caption)}"><img src="{ASSETS+name}-960.webp" srcset="{srcset}" sizes="(max-width: 760px) 92vw, 50vw" width="{w}" height="{h}" alt="{E(caption)}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></a><figcaption>{E(caption)}</figcaption></figure>'
+    return f'<figure class="art {cls}"><a href="{ASSETS+full.name}" data-viewer aria-label="Enlarge image: {E(caption)}"><img src="{ASSETS+name}-960.webp" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{E(caption)}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></a><figcaption>{E(caption)}</figcaption></figure>'
 def watch_art(index, eager=False):
     item = WATCH_IMAGES[index]
     path = '/assets/screenshots/chance-darts/watch/' + item['file']
-    return f'<figure class="art watch-art"><a href="{path}" data-viewer aria-label="Enlarge image: {E(item["caption"])}"><img src="{path}" width="{item["width"]}" height="{item["height"]}" alt="{E(item["alt"])}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></a><figcaption>{E(item["caption"])}</figcaption></figure>'
+    webp_path = path.removesuffix('.png') + '.webp'
+    return f'<figure class="art watch-art"><a href="{path}" data-viewer aria-label="Enlarge image: {E(item["caption"])}"><picture><source type="image/webp" srcset="{webp_path}"><img src="{path}" width="{item["width"]}" height="{item["height"]}" alt="{E(item["alt"])}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></picture></a><figcaption>{E(item["caption"])}</figcaption></figure>'
 def watch_gallery():
     return '<section class="watch-gallery" aria-labelledby="watch-gallery-heading"><div class="section-heading"><p class="eyebrow">A closer look</p><h2 id="watch-gallery-heading">THE MATCH,\nAT A GLANCE.</h2><p>Live scores, current-player focus and match details on Apple Watch. Select a screenshot to view it at full size.</p></div><div class="watch-gallery-grid">' + ''.join(watch_art(i) for i in range(len(WATCH_IMAGES))) + '</div></section>'
 
@@ -52,22 +56,32 @@ def availability():
     rows=[('iPhone & iPad','Available · '+RELEASE['ios']['version'],'scoring'),('Apple Watch','Included with the iPhone app','apple-watch'),('Apple TV','Free receiver · '+RELEASE['tv']['version'],'apple-tv'),('Browser','Live Display available','live-display'),('Mac',RELEASE['mac']['note'],None),('Android',RELEASE['android']['note'],None)]
     return '<section class="availability-section wrap" id="platforms"><div class="section-heading"><p class="eyebrow">Across your screens</p><h2>FIND YOUR SETUP.</h2><p>Scoring on your device. Spectators on theirs.</p></div><dl class="platforms" id="screens">'+''.join('<div><dt>'+ (link(s,n) if s else n)+'</dt><dd>'+E(t)+'</dd></div>' for n,t,s in rows)+f'</dl><p class="fine">Public availability checked in the UK App Store on {RELEASE["checked"]}. Availability can vary by region. {link("whats-new","Release details")}</p></section>'
 def head(slug,p):
-    title='Chance Darts | Your darts. Your rules. Your game.' if not slug else p['label']+' | Chance Darts'
-    desc=p['intro']
-    url=BASE+route(slug)
-    schema=[{'@context':'https://schema.org','@type':'WebPage','name':title,'description':desc,'url':url,'isPartOf':{'@type':'WebSite','name':'Lumbre Studios','url':BASE+'/'}}, {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Lumbre Studios','item':BASE+'/'},{'@type':'ListItem','position':2,'name':'Chance Darts','item':BASE+route()}]+([{'@type':'ListItem','position':3,'name':p['label'],'item':url}] if slug else [])}]
+    meta=SEO['pages'][slug];title=meta['title'];desc=meta['description'];im=meta['image']
+    url=BASE+route(slug); org=BASE+'/#organization'; site=BASE+'/#website'
+    app=BASE+route('apple-tv' if slug=='apple-tv' else '')+'#app'
+    schema=[
+      {'@type':'Organization','@id':org,'name':'Lumbre Studios','url':BASE+'/'},
+      {'@type':'WebSite','@id':site,'name':'Lumbre Studios','url':BASE+'/','publisher':{'@id':org}},
+      {'@type':'WebPage','@id':url+'#webpage','name':title,'description':desc,'url':url,'inLanguage':'en-GB','isPartOf':{'@id':site},'publisher':{'@id':org},'about':{'@id':app},'breadcrumb':{'@id':url+'#breadcrumb'}},
+      {'@type':'BreadcrumbList','@id':url+'#breadcrumb','itemListElement':[{'@type':'ListItem','position':1,'name':'Lumbre Studios','item':BASE+'/'},{'@type':'ListItem','position':2,'name':'Chance Darts','item':BASE+route()}]+([{'@type':'ListItem','position':3,'name':p['label'],'item':url}] if slug else [])}]
     if not slug or slug=='apple-tv':
         tv=slug=='apple-tv'; r=RELEASE['tv' if tv else 'ios']
-        schema.append({'@context':'https://schema.org','@type':'MobileApplication','name':'Chance Darts Live Display' if tv else 'Chance Darts','operatingSystem':'tvOS 16 or later' if tv else 'iOS 15 or later; iPadOS 15 or later','applicationCategory':'SportsApplication','softwareVersion':r['version'],'url':url,'downloadUrl':r['url'],'publisher':{'@type':'Organization','name':'Lumbre Studios','url':BASE+'/'}})
-    return f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><meta name="apple-itunes-app" content="app-id={6837735748 if slug=='apple-tv' else 6760661230}"><meta property="og:type" content="website"><meta property="og:site_name" content="Chance Darts · Lumbre Studios"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{BASE+ASSETS}social.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Chance Darts on iPhone Duo in tabletop mode, from approved promotional artwork"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/chance-darts/chance-darts.css"><script src="/chance-darts/chance-darts.js" defer></script><script type="application/ld+json">{json.dumps(schema)}</script></head><body class="page-{slug or 'home'}">'''
+        schema.append({'@type':'SoftwareApplication','@id':app,'name':'Chance Darts Live Display' if tv else 'Chance Darts','operatingSystem':'tvOS 16 or later' if tv else 'iOS 15 or later; iPadOS 15 or later','applicationCategory':'SportsApplication','softwareVersion':r['version'],'url':url,'downloadUrl':r['url'],'publisher':{'@id':org},'description':desc,'offers':{'@type':'Offer','price':'0','priceCurrency':'GBP','url':r['url'],'description':'Free Apple TV receiver download.' if tv else 'Free base app download with limited local play; optional Pro Lifetime purchase is separate and priced in the app.'}})
+    schema={'@context':'https://schema.org','@graph':schema}
+    social={'og:type':'website','og:site_name':'Lumbre Studios','og:locale':'en_GB','og:title':title,'og:description':desc,'og:url':url,'og:image':BASE+im['path'],'og:image:type':im['type'],'og:image:width':str(im['width']),'og:image:height':str(im['height']),'og:image:alt':im['alt']}
+    tags=''.join(f'<meta property="{k}" content="{E(v)}">' for k,v in social.items())
+    twitter={'card':'summary' if im['width']==im['height'] else 'summary_large_image','title':title,'description':desc,'image':BASE+im['path'],'image:alt':im['alt']}
+    tags+=''.join(f'<meta name="twitter:{k}" content="{E(v)}">' for k,v in twitter.items())
+    return f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><meta name="apple-itunes-app" content="app-id={6837735748 if slug=='apple-tv' else 6760661230}">{tags}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/chance-darts/chance-darts.css"><script src="/chance-darts/chance-darts.js" defer></script><script type="application/ld+json">{json.dumps(schema)}</script></head><body class="page-{slug or 'home'}">'''
+
 def home():
     p={'intro':'Play. Compete. Connect. Improve. Discover Chance Darts scoring, online video, Apple Watch, Duo, Live Display, training and leagues. Free download, optional lifetime Pro.'}
     features=[('scoring','The game, your way.','301, 501, 701. Singles, doubles, teams and a little Chance with Pots.'),('online-play','Two boards. One match.','Real-time scoring and optional live video. Host with Pro; join for free.'),('training','Make practice count.','Five focused training games, from finishing to friendly rivalry.'),('statistics','Know your progress.','Saved player profiles, recorded performance and advanced Pro statistics.')]
     rows=''.join(f'<a class="feature-row" href="{route(k)}"><span class="eyebrow">{PAGES[k]["label"]}</span><h3>{h}</h3><p>{t}</p><span class="row-action">Explore</span></a>' for k,h,t in features)
-    return head('',p)+nav('')+f'''<main id="main"><section class="home-hero wrap"><div class="hero-copy"><a class="release-pill" href="{route('whats-new')}">NEW IN {RELEASE['ios']['version']} <span>Watch. Duo. More connected.</span></a><h1>YOUR DARTS.<br>YOUR RULES.<br><em>YOUR GAME.</em></h1><p class="hero-tagline">Play. Compete. Connect. Improve.</p><p class="lede">From the first throw to the final double. Your complete darts companion, made for the way you play.</p><div class="actions">{store()}{link('scoring','Explore the game','text-link')}</div><p class="fine">Free to download. Optional lifetime Pro. {link('pro','See what’s included.')}</p></div><div class="home-art">{art('duo-landscape','The Match Desk, unfolded on iPhone Duo.',True)}<div class="art-label"><span>BUILT AROUND THE BOARD</span><span>iPhone · Duo · iPad</span></div></div></section>
+    return head('',p)+nav('')+f'''<main id="main"><section class="home-hero wrap"><div class="hero-copy"><a class="release-pill" href="{route('whats-new')}">NEW IN {RELEASE['ios']['version']} <span>Watch. Duo. More connected.</span></a><h1>YOUR DARTS.<br>YOUR RULES.<br><em>YOUR GAME.</em></h1><p class="hero-tagline">Play. Compete. Connect. Improve.</p><p class="lede">From the first throw to the final double. Your complete darts companion, made for the way you play.</p><div class="actions">{store()}{link('scoring','Explore the game','text-link')}</div><p class="fine">Free to download. Optional lifetime Pro. {link('pro','See what’s included.')}</p></div><div class="home-art">{art('duo-landscape','The Match Desk, unfolded on iPhone Duo.',True,sizes='(max-width: 640px) calc(100vw - 40px), (max-width: 760px) 600px, (max-width: 1100px) calc((100vw - 86px) * 0.51), (max-width: 1416px) calc((100vw - 146px) * 0.51), 648px')}<div class="art-label"><span>BUILT AROUND THE BOARD</span><span>iPhone · Duo · iPad</span></div></div></section>
 <div class="manifesto wrap"><span>ONE COMPLETE DARTS COMPANION</span><p>From your first 501<br>to the whole room watching.</p></div>
 <section class="wrap feature-index" id="play"><div class="section-heading"><p class="eyebrow">Make every visit count</p><h2>ALL THE WAYS\nYOU PLAY.</h2></div><div>{rows}</div></section>
-<section class="spotlight" id="duo"><div class="wrap split"><div>{art('tabletop','A new angle on your game. Genuine Duo tabletop artwork.')}</div><div class="spotlight-copy"><p class="eyebrow">iPhone Duo</p><h2>ONE PHONE.\nBOTH SIDES\nOF THE GAME.</h2><p>Score on the inner screen. Let spectators follow on the outer screen. Adaptive layouts and local Live Display bring your setup together.</p>{link('iphone-duo','Meet Chance Darts on Duo','button outline')}<div class="screen-links" id="live-display">{link('apple-watch','Your match on Apple Watch')}{link('apple-tv','The big screen on Apple TV')}{link('ipad','More room on iPad')}{link('live-display','Connect browser Live Display')}</div></div></div></section>
+<section class="spotlight" id="duo"><div class="wrap split"><div>{art('tabletop','A new angle on your game. Genuine Duo tabletop artwork.',sizes='(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc((100vw - 101px) * 0.535), (max-width: 1416px) calc((100vw - 166px) * 0.535), 669px')}</div><div class="spotlight-copy"><p class="eyebrow">iPhone Duo</p><h2>ONE PHONE.\nBOTH SIDES\nOF THE GAME.</h2><p>Score on the inner screen. Let spectators follow on the outer screen. Adaptive layouts and local Live Display bring your setup together.</p>{link('iphone-duo','Meet Chance Darts on Duo','button outline')}<div class="screen-links" id="live-display">{link('apple-watch','Your match on Apple Watch')}{link('apple-tv','The big screen on Apple TV')}{link('ipad','More room on iPad')}{link('live-display','Connect browser Live Display')}</div></div></div></section>
 <section class="wrap competition"><div><p class="eyebrow">Bring everyone to the board</p><h2>THE NIGHT.\nTHE SEASON.\nTHE RIVALRY.</h2></div><div><p>Friends at home. Teams at the pub. A club with a season to play for. Keep the fixtures, results and competition together.</p><div class="competition-links">{link('darts-night','Run a Darts Night')}{link('leagues','Build your league')}</div></div></section>
 {availability()}{closing()}</main>{footer()}</body></html>'''
 def prose(sections):
@@ -107,7 +121,7 @@ def page(slug,p):
     if slug=='darts-night': steps=steps.replace('GET CONNECTED.','SET UP THE NIGHT.')
     body=special_content(special)+steps+prose(p['sections'])
     if slug=='apple-watch': body+=watch_gallery()
-    if slug=='iphone-duo':body+='<section class="duo-gallery"><h2>OPEN UP YOUR GAME.</h2><div>'+art('duo-landscape','Unfolded landscape. Approved Duo promotional artwork.')+art('duo-portrait','Unfolded portrait. Approved Duo promotional artwork.')+'</div></section>'
+    if slug=='iphone-duo':body+='<section class="duo-gallery"><h2>OPEN UP YOUR GAME.</h2><div>'+art('duo-landscape','Unfolded landscape. Approved Duo promotional artwork.',sizes='(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc((100vw - 106px) * 0.637), (max-width: 1416px) calc((100vw - 146px) * 0.637), 809px')+art('duo-portrait','Unfolded portrait. Approved Duo promotional artwork.',sizes='(max-width: 760px) 300px, 320px')+'</div></section>'
     if slug=='scoring':body+='<section class="pots-feature">'+art('pots','Chance Darts Pots mode. Approved promotional artwork.')+'<div><p class="eyebrow">The Chance Darts difference</p><h2>A LITTLE CHANCE.\nA DIFFERENT GAME.</h2><p>Choose optional Pots when you want more at stake in every visit.</p></div></section>'
     if p.get('note'):body+='<aside class="note">'+E(p['note'])+'</aside>'
     related='<section class="related"><p class="eyebrow">Keep exploring</p><div>'+''.join(link(k) for k in p['related'])+'</div></section>'
@@ -124,6 +138,6 @@ for item in list(root):
     loc=item.find('{'+ns+'}loc')
     if loc is not None and loc.text.startswith(BASE+'/chance-darts/'): root.remove(item)
 for slug in ['',*PAGES]:
-    item=ET.SubElement(root,'{'+ns+'}url'); ET.SubElement(item,'{'+ns+'}loc').text=BASE+route(slug)
+    item=ET.SubElement(root,'{'+ns+'}url'); ET.SubElement(item,'{'+ns+'}loc').text=BASE+route(slug); ET.SubElement(item,'{'+ns+'}lastmod').text=SEO['updated']
 ET.indent(tree,space='  ');tree.write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 print(f'Built {len(PAGES)+1} static product pages; preserved other sitemap entries.')
