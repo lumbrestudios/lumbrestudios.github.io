@@ -9,6 +9,7 @@ BASE = 'https://lumbrestudios.app'
 ASSETS = '/assets/screenshots/chance-darts/premium/'
 OUT = ROOT / 'chance-darts'
 WATCH_IMAGES = json.loads(Path(__file__).with_name('watch-images.json').read_text())
+TV_IMAGES = json.loads(Path(__file__).with_name('tv-images.json').read_text())
 SEO = json.loads(Path(__file__).with_name('seo.json').read_text())
 E = html.escape
 
@@ -37,6 +38,14 @@ def watch_art(index, eager=False):
     return f'<figure class="art watch-art"><a href="{path}" data-viewer aria-label="Enlarge image: {E(item["caption"])}"><picture><source type="image/webp" srcset="{webp_path}"><img src="{path}" width="{item["width"]}" height="{item["height"]}" alt="{E(item["alt"])}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></picture></a><figcaption>{E(item["caption"])}</figcaption></figure>'
 def watch_gallery():
     return '<section class="watch-gallery" aria-labelledby="watch-gallery-heading"><div class="section-heading"><p class="eyebrow">A closer look</p><h2 id="watch-gallery-heading">THE MATCH,\nAT A GLANCE.</h2><p>Live scores, current-player focus and match details on Apple Watch. Select a screenshot to view it at full size.</p></div><div class="watch-gallery-grid">' + ''.join(watch_art(i) for i in range(len(WATCH_IMAGES))) + '</div></section>'
+
+def tv_art(index, eager=False):
+    item=TV_IMAGES[index]; base='/assets/screenshots/chance-darts/apple-tv/'; name=item['name']
+    srcset=', '.join(f'{base}{name}-{w}.webp {w}w' for w in [640,960,1600,2048])
+    sizes='(max-width: 640px) calc(100vw - 58px), (max-width: 760px) 582px, (max-width: 1100px) calc((100vw - 137px) / 2), (max-width: 1416px) calc((100vw - 202px) / 2), 607px' if eager else '(max-width: 760px) calc(100vw - 58px), (max-width: 1100px) calc((100vw - 128px) / 2), (max-width: 1416px) calc((100vw - 168px) / 2), 624px'
+    return f'<figure class="art tv-art"><a href="{base+item["file"]}" data-viewer aria-label="Enlarge screenshot: {E(item["caption"])}"><img src="{base}{name}-960.webp" srcset="{srcset}" sizes="{sizes}" width="{item["width"]}" height="{item["height"]}" alt="{E(item["alt"])}" {"fetchpriority=high" if eager else "loading=lazy"} decoding="async"></a><figcaption>{E(item["caption"])}</figcaption></figure>'
+def tv_gallery():
+    return '<section class="tv-gallery" aria-labelledby="tv-gallery-heading"><div class="section-heading"><p class="eyebrow">A closer look</p><h2 id="tv-gallery-heading">THE BIG SCREEN.\nEVERY MOMENT.</h2><p>From connecting your display to the final result. These Apple TV screenshots include demo scenes with fictional players and sample scores. Select a screen to view the full-size image.</p></div><div class="tv-gallery-grid">'+''.join(tv_art(i) for i in [0,2,3,1,6,4,5])+'</div></section>'
 
 def nav(slug):
     groups={}
@@ -71,6 +80,7 @@ def head(slug,p):
     social={'og:type':'website','og:site_name':'Lumbre Studios','og:locale':'en_GB','og:title':title,'og:description':desc,'og:url':url,'og:image':BASE+im['path'],'og:image:type':im['type'],'og:image:width':str(im['width']),'og:image:height':str(im['height']),'og:image:alt':im['alt']}
     tags=''.join(f'<meta property="{k}" content="{E(v)}">' for k,v in social.items())
     twitter={'card':'summary' if im['width']==im['height'] else 'summary_large_image','title':title,'description':desc,'image':BASE+im['path'],'image:alt':im['alt']}
+    if slug=='apple-tv': tags+='<link rel="stylesheet" href="/chance-darts/apple-tv/screenshots.css">'
     tags+=''.join(f'<meta name="twitter:{k}" content="{E(v)}">' for k,v in twitter.items())
     return f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><meta name="apple-itunes-app" content="app-id={6837735748 if slug=='apple-tv' else 6760661230}">{tags}<link rel="icon" href="/favicon.ico" sizes="any"><link rel="stylesheet" href="/chance-darts/chance-darts.css"><script src="/chance-darts/chance-darts.js" defer></script><script type="application/ld+json">{json.dumps(schema)}</script></head><body class="page-{slug or 'home'}">'''
 
@@ -107,6 +117,7 @@ def page(slug,p):
     image=p.get('image'); special=p.get('special','')
     heroart=art(image,p['caption'],True,'portrait' if image in ['iphone-match','training','darts-night'] else '') if image else editorial(special)
     if slug=='apple-watch': heroart=watch_art(0,True)
+    if slug=='apple-tv': heroart=tv_art(2,True)
     single=' single' if not heroart else ''
     action=store(slug=='apple-tv')
     if slug=='live-display':action=f'<a class="button" href="{RELEASE["receiver"]}">Open browser Live Display</a>'
@@ -121,6 +132,7 @@ def page(slug,p):
     if slug=='darts-night': steps=steps.replace('GET CONNECTED.','SET UP THE NIGHT.')
     body=special_content(special)+steps+prose(p['sections'])
     if slug=='apple-watch': body+=watch_gallery()
+    if slug=='apple-tv': body+=tv_gallery()
     if slug=='iphone-duo':body+='<section class="duo-gallery"><h2>OPEN UP YOUR GAME.</h2><div>'+art('duo-landscape','Unfolded landscape. Approved Duo promotional artwork.',sizes='(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) calc((100vw - 106px) * 0.637), (max-width: 1416px) calc((100vw - 146px) * 0.637), 809px')+art('duo-portrait','Unfolded portrait. Approved Duo promotional artwork.',sizes='(max-width: 760px) 300px, 320px')+'</div></section>'
     if slug=='scoring':body+='<section class="pots-feature">'+art('pots','Chance Darts Pots mode. Approved promotional artwork.')+'<div><p class="eyebrow">The Chance Darts difference</p><h2>A LITTLE CHANCE.\nA DIFFERENT GAME.</h2><p>Choose optional Pots when you want more at stake in every visit.</p></div></section>'
     if p.get('note'):body+='<aside class="note">'+E(p['note'])+'</aside>'
@@ -138,6 +150,6 @@ for item in list(root):
     loc=item.find('{'+ns+'}loc')
     if loc is not None and loc.text.startswith(BASE+'/chance-darts/'): root.remove(item)
 for slug in ['',*PAGES]:
-    item=ET.SubElement(root,'{'+ns+'}url'); ET.SubElement(item,'{'+ns+'}loc').text=BASE+route(slug); ET.SubElement(item,'{'+ns+'}lastmod').text=SEO['updated']
+    item=ET.SubElement(root,'{'+ns+'}url'); ET.SubElement(item,'{'+ns+'}loc').text=BASE+route(slug); ET.SubElement(item,'{'+ns+'}lastmod').text=SEO['pages'][slug].get('updated',SEO['updated'])
 ET.indent(tree,space='  ');tree.write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 print(f'Built {len(PAGES)+1} static product pages; preserved other sitemap entries.')

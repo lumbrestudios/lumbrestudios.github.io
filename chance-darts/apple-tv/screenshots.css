@@ -1,0 +1,12 @@
+/* Scoped to the Apple TV screenshots; shared site styling is unchanged. */
+.page-apple-tv .tv-art>a{position:relative;isolation:isolate;padding:8px;border:1px solid #62656b;border-radius:13px;background:linear-gradient(145deg,#3c3e43 0%,#111216 30%,#08090b 78%,#34363b 100%);box-shadow:inset 0 0 0 1px #ffffff12,0 15px 35px #0005}
+.page-apple-tv .tv-art img{display:block;width:100%;height:auto;border-radius:4px;background:#08090d}
+.page-apple-tv .tv-art>a::before{content:"";position:absolute;z-index:-1;left:44%;bottom:-13px;width:12%;height:13px;background:linear-gradient(90deg,#16181c,#44474d 50%,#181a1e)}
+.page-apple-tv .tv-art>a::after{content:"";position:absolute;left:31%;bottom:-16px;width:38%;height:4px;border-radius:50% 50% 2px 2px;background:linear-gradient(#666970,#282b30);box-shadow:0 5px 10px #0005}
+.page-apple-tv .tv-art figcaption{text-align:center;margin-top:29px}
+.page-apple-tv .tv-gallery{padding:50px 0 60px;border-top:1px solid var(--line)}
+.page-apple-tv .tv-gallery .section-heading{margin-bottom:42px;max-width:760px}
+.page-apple-tv .tv-gallery .section-heading h2{margin-bottom:22px}
+.page-apple-tv .tv-gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 36px}
+.page-apple-tv .tv-gallery-grid .tv-art{min-width:0}
+@media(max-width:760px){.page-apple-tv .tv-gallery-grid{grid-template-columns:1fr;gap:36px}.page-apple-tv .tv-gallery{padding-block:40px}}

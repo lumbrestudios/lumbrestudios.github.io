@@ -1,0 +1,86 @@
+[
+  {
+    "name": "connect-display",
+    "file": "connect-display.png",
+    "caption": "Connect your Apple TV.",
+    "alt": "Apple TV Live Display welcome screen with setup instructions and an example ABCD–EFGH display code.",
+    "width": 2048,
+    "height": 1152,
+    "bytes": 274126,
+    "sha256": "f50677b8e96a51003044cfeeecd4ab14cbd94e2d868689e281bf3bd497de6f11",
+    "source": "Owner-supplied conversation attachment; available canvas 2048×1152.",
+    "full_webp_pixels_identical": true
+  },
+  {
+    "name": "180-celebration",
+    "file": "180-celebration.png",
+    "caption": "Celebrate the big visits.",
+    "alt": "Apple TV demo showing a red 180 celebration for fictional player Alex Morgan.",
+    "width": 2048,
+    "height": 1152,
+    "bytes": 173724,
+    "sha256": "c0087b5bd7b974cd3e4008242e56f6895c334c452feba1843f2bd0ed96e44b00",
+    "source": "Owner-supplied conversation attachment; available canvas 2048×1152.",
+    "full_webp_pixels_identical": true
+  },
+  {
+    "name": "match-play",
+    "file": "match-play.png",
+    "caption": "The match, on the big screen.",
+    "alt": "Apple TV Match Play demo with Alex Morgan on 321 and Jordan Taylor on 284, recent visits and match statistics.",
+    "width": 2048,
+    "height": 1152,
+    "bytes": 243857,
+    "sha256": "82376ef4ef55ca2b89d4bd463dc315fbda9458ab1bfcc3b3c1055aff2b41c4ac",
+    "source": "Owner-supplied conversation attachment; available canvas 2048×1152.",
+    "full_webp_pixels_identical": true
+  },
+  {
+    "name": "checkout",
+    "file": "checkout.png",
+    "caption": "See the route to the finish.",
+    "alt": "Apple TV checkout demo showing Alex Morgan on 94 with a T18, D20 checkout suggestion.",
+    "width": 2048,
+    "height": 1152,
+    "bytes": 240331,
+    "sha256": "b8e55a4c2663992d7629f7b956185ead83dd9f7e3b6e280e4b7f8d614fbf46fb",
+    "source": "Owner-supplied conversation attachment; available canvas 2048×1152.",
+    "full_webp_pixels_identical": true
+  },
+  {
+    "name": "between-matches",
+    "file": "between-matches.png",
+    "caption": "Keep the night moving.",
+    "alt": "Apple TV Darts Night demo between matches, showing the next fixture, running order, live table and last result.",
+    "width": 2048,
+    "height": 1152,
+    "bytes": 336408,
+    "sha256": "1b15531f771007e6d405fc79131c35a4ef5cb1f92bbcef3324435279a9577f7c",
+    "source": "Owner-supplied conversation attachment; available canvas 2048×1152.",
+    "full_webp_pixels_identical": true
+  },
+  {
+    "name": "match-result",
+    "file": "match-result.png",
+    "caption": "Give the result its moment.",
+    "alt": "Apple TV match result demo showing fictional player Alex Morgan winning 5–3 against Jordan Taylor.",
+    "width": 2048,
+    "height": 1152,
+    "bytes": 227095,
+    "sha256": "17a67b9774186ed650558eb20e40135381d4672702604bff495a3c5fbd6c9f6e",
+    "source": "Owner-supplied conversation attachment; available canvas 2048×1152.",
+    "full_webp_pixels_identical": true
+  },
+  {
+    "name": "darts-night",
+    "file": "darts-night.png",
+    "caption": "The whole night, in view.",
+    "alt": "Apple TV Darts Night demo showing current players on 321 and 284 with upcoming fixtures alongside.",
+    "width": 2048,
+    "height": 1152,
+    "bytes": 353864,
+    "sha256": "53a070339643f2654c0b863e44f47cad9f141ddce0fe98f4d1676fdfb4d4d9cb",
+    "source": "Owner-supplied conversation attachment; available canvas 2048×1152.",
+    "full_webp_pixels_identical": true
+  }
+]

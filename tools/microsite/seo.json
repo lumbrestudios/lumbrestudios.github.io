@@ -84,13 +84,14 @@
       "title": "Apple TV Darts Scoreboard & Live Display | Chance Darts",
       "description": "Download the free Chance Darts Live Display app for Apple TV. Follow Match Play and Darts Night from a compatible scorer, with remote controls and a demo.",
       "image": {
-        "path": "/assets/screenshots/chance-darts/social/apple-tv.png",
-        "width": 144,
-        "height": 144,
+        "path": "/assets/screenshots/chance-darts/apple-tv/match-play.png",
+        "width": 2048,
+        "height": 1152,
         "type": "image/png",
-        "alt": "Chance Darts app logo; native Apple TV Live Display"
+        "alt": "Apple TV Match Play demo with Alex Morgan on 321 and Jordan Taylor on 284, recent visits and match statistics."
       },
-      "social_note": "Brand image used: no current feature screenshot supplied."
+      "social_note": "Owner-supplied native Apple TV Match Play demo screenshot; fictional players and sample scores.",
+      "updated": "2026-11-26"
     },
     "apple-watch": {
       "intent": "View local darts match scores on Apple Watch",
